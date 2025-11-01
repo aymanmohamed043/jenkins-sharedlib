@@ -18,7 +18,7 @@ def deploy(String imageName, String imgTag) {
 
     def safeName = imageName.replaceAll('/', '-')
 
-    script.sh """
+    sh """
         docker stop ${safeName}-container || true
         docker rm ${safeName}-container || true
         docker run -d --name ${safeName}-container -p 8080:8080 ${imageName}:${imgTag}
