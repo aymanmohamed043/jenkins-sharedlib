@@ -14,7 +14,7 @@ def deploy(imageName,  imgTag) {
     }
 
 def deploy(String imageName, String imgTag) {
-    script.echo "Deploying container ${imageName}:${imgTag}..."
+    echo "Deploying container ${imageName}:${imgTag}..."
 
     def safeName = imageName.replaceAll('/', '-')
 
@@ -24,5 +24,5 @@ def deploy(String imageName, String imgTag) {
         docker run -d --name ${safeName}-container -p 8080:8080 ${imageName}:${imgTag}
     """
 
-    script.echo "Deployment completed!"
+    echo "Deployment completed!"
 }
