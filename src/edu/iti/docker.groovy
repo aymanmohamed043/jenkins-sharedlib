@@ -21,7 +21,7 @@ def deploy(String imageName, String imgTag) {
     script.sh """
         docker stop ${safeName}-container || true
         docker rm ${safeName}-container || true
-        docker run -d --name ${safeName}-container -p 8080:8080 ${imageName}:${tag}
+        docker run -d --name ${safeName}-container -p 8080:8080 ${imageName}:${imgTag}
     """
 
     script.echo "Deployment completed!"
